@@ -6,7 +6,7 @@
 /*   By: romasant <romasant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 21:14:06 by romasant          #+#    #+#             */
-/*   Updated: 2026/11/15 21:27:31 by romasant         ###   ########.fr       */
+/*   Updated: 2026/11/16 22:55:23 by romasant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ int	main(void)
 	fd = open("/mnt/c/Users/croco/Desktop/42/M1_42/get_next_line/test.txt", O_RDONLY);
 	if (!fd)
 		return (-1);
-	printf("%s\n", get_next_line(fd));
+	printf("Ligne : %s\n", get_next_line(fd));
 	return (0);
 }

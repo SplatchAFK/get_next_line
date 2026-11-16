@@ -6,7 +6,7 @@
 /*   By: romasant <romasant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 20:26:38 by romasant          #+#    #+#             */
-/*   Updated: 2026/11/15 22:02:05 by romasant         ###   ########.fr       */
+/*   Updated: 2026/11/16 23:02:52 by romasant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,14 @@ ssize_t	ft_read_and_extra(int fd, char *buffer)
 	int (i) = 0;
 
 	size_bytes = 0;
-	while (buffer[i])
+	while (i <= (BUFFER_SIZE + 1))
 	{
 		size_bytes = read(fd, &buffer[i], i);
+		if (size_bytes == -1)
+			return (-1);
 		if (buffer[i] == '\n')
-		{
-			printf("\nVoici le nombre de bytes que je return : %ld\n", size_bytes);	
 			return (size_bytes);
-		}
 		i++;
 	}
-	if (size_bytes == -1)
-		return (-1);
 	return (size_bytes);
 }
