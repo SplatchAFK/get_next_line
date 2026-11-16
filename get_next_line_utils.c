@@ -6,7 +6,7 @@
 /*   By: romasant <romasant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 20:26:38 by romasant          #+#    #+#             */
-/*   Updated: 2026/11/16 23:40:48 by romasant         ###   ########.fr       */
+/*   Updated: 2026/11/16 23:43:47 by romasant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 ssize_t	ft_read_and_extra(int fd, char *buffer)
 {
 	ssize_t	size_bytes;
-	int (i) = 0;
 
+	int (i) = 0;
 	size_bytes = 0;
 	while (i <= (BUFFER_SIZE + 1))
 	{
