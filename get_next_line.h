@@ -6,7 +6,7 @@
 /*   By: romasant <romasant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 20:26:54 by romasant          #+#    #+#             */
-/*   Updated: 2026/11/16 23:38:54 by romasant         ###   ########.fr       */
+/*   Updated: 2026/11/17 00:23:09 by romasant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # endif
 
 char	*get_next_line(int fd);
-ssize_t	ft_read_and_extra(int fd, char *buffer);
+ssize_t	ft_read_and_extra(char *buffer);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
 #endif
