@@ -6,7 +6,7 @@
 /*   By: romasant <romasant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 20:25:59 by romasant          #+#    #+#             */
-/*   Updated: 2026/11/17 00:27:10 by romasant         ###   ########.fr       */
+/*   Updated: 2026/11/18 18:37:14 by romasant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,29 @@
 
 char	*get_next_line(int fd)
 {
-	char	*str;
-	char	buffer[BUFFER_SIZE + 1];
+	char		*buffer;
+	char		*rest;
+	static char	*stock;
 
-	ssize_t (nb_bytes_read) = 0;
-	nb_bytes_read = read(fd, buffer, BUFFER_SIZE);
-	if (nb_bytes_read == -1 || nb_bytes_read == 0)
+	size_t (size) = 0;
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	buffer[nb_bytes_read] = '\0';
-	str = malloc(sizeof(char) * (nb_bytes_read + 1));
-	ft_strlcpy(str, buffer, nb_bytes_read);
-	return (str);
+	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buffer)
+		return (NULL);
+	stock = ft_read_stock(fd, stock, buffer);
+	free(buffer);
+	if (!stock)
+		return (NULL);
+	rest = ft_strchr(stock, '\n');
+	size = ft_strlen(stock);
+	if (rest)
+		size = rest - stock + 1;
+	rest = ft_substr(stock, size, ft_strlen(stock) - size);
+	if (!rest)
+		return (NULL);
+	buffer = ft_substr(stock, 0, size);
+	free(stock);
+	stock = rest;
+	return (buffer);
 }
